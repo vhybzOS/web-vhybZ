@@ -1,46 +1,105 @@
 .window {
-  max-width: 500px;
+  max-width: 32rem;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  margin: auto;
+  margin: 0 auto;
+  background: hsl(var(--background));
+  border-left: 1px solid hsl(var(--border) / 0.1);
+  border-right: 1px solid hsl(var(--border) / 0.1);
+  box-shadow: none;
 }
 
 .appbar .navbar {
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 2rem;
+  border-bottom: 1px solid hsl(var(--border) / 0.05);
+  background: hsl(var(--background));
+  position: relative;
 }
 
-.appbar .navbar .logo {
-  flex-basis: 10%;
-  width: 24px;
+.appbar .navbar::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 2rem;
+  right: 2rem;
+  height: 1px;
+  background: hsl(var(--border) / 0.08);
 }
 
 .content {
-  flex-grow: 1;
-  padding: 10px;
+  flex: 1;
+  padding: 2rem 2.5rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  background: hsl(var(--background));
+  position: relative;
 }
 
 .content .container {
-  padding: 10px;
-  flex: auto;
+  flex: 1;
+  min-height: 320px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 1rem;
+  background: hsl(var(--background));
+  transition: all 0.2s ease-in-out;
+}
+
+.content .container:hover {
+  background: hsl(var(--background));
 }
 
 .toolbar {
   display: flex;
   justify-content: space-between;
-  padding: 0 20px;
+  align-items: center;
+  padding: 1.25rem 2rem;
+  border-top: 1px solid hsl(var(--border) / 0.05);
+  background: hsl(var(--background));
+  position: relative;
 }
+
+.toolbar::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 2rem;
+  right: 2rem;
+  height: 1px;
+  background: hsl(var(--border) / 0.08);
+}
+
 .toolbar .commands {
   display: flex;
+  gap: 1.5rem;
 }
 
 .prompt {
-  padding: 10px;
+  padding: 1.75rem 2rem;
   display: flex;
-  align-items: stretch;
-  gap: 5px;
+  align-items: center;
+  gap: 1rem;
+  border-top: 1px solid hsl(var(--border) / 0.05);
+  background: hsl(var(--background));
+  position: relative;
+}
+
+.prompt::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 2rem;
+  right: 2rem;
+  height: 1px;
+  background: hsl(var(--border) / 0.08);
+}
+
+/* Force textarea placeholder visibility */
+.prompt textarea::placeholder {
+  color: hsl(var(--foreground) / 0.6) !important;
 }
